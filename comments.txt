@@ -1,0 +1,50 @@
+PUT:
+- data should be renamed to employee in response body
+- if 'data' is returned then all members of employee should be returned
+- status should be removed from response body
+- employee should be updated in db
+- proper error message should be returned if ID of non existing employee was used (error in JSON format with 3 items: {"statuscode": 404, "statusdesc":"Not found",erormessage:"Employee...")
+- validation of parameters sent(type, values if needed) should be added with proper error message if validation fails.For sure invalid members should not be present in returned JSON
+- it should not be possible to update employee id
+- fix missing documentation content, no info what employee members can be updated
+- add authentication/authorization of request 
+- 'update' should be replaced with 'employees' in route
+
+GET:
+- data should be renamed to employees
+- returned memebers got long names, 'employee_' part should be removed
+- names of members should be consistent between differnt methods
+- in documentation all values are strings, in practice id,salary,age are numbers so there is mistake in documentation 
+- status should be removed from response body
+- count of returned employees could be addded to response body
+- add authentication/authorization of request
+-'/employee' should be replaced with '/employees' in route
+
+GET/{id}:
+- data should be renamed to employee
+- proper error message if ID of non existing employee was used (error in JSON format with 3 items: {"statuscode": 404, "statusdesc":"Not found",erormessage:"Employee...")
+- returned memebers got long names, 'employee_' part should be removed
+- names of members should be consistent between differnt methods
+- in documentation all values are strings, in practice id,salary,age are numbers so there are mistakes in documentation 
+- status should be removed from response body
+- add authentication/authorization of request
+-'/employee/{id}' should be replaced with '/employees/{id}' in route
+
+POST:
+- data should be renamed to employee
+- validation of parameters sent(type, values if needed) with proper error message if validation fails. For sure invalid members should not be present in returned JSON
+- record for new employee should be added in db
+- it should be possible to fetch newly added employee with GET/{id}
+- sample JSON in documentation has salary and age presented as strings even they are numbers. Same mistake in Results.
+- it is possible to add empty employee
+- add authentication/authorization of request 
+- '/create' should be replaced with '/employees' in route
+
+DELETE:
+- GET method mentioned in documentation should be fixed and replaced by DELETE
+- message got plural Records even single record is being deleted
+- proper error message if ID of non existing employee id was used (error in JSON format with 3 items: {"statuscode": 404, "statusdesc":"Not found",erormessage:"Employee...")
+- status shoudl be removed from response body
+- data is obsolete in response body
+- add authentication/authorization of request 
+- '/delete' should be replaced with '/employees' in route
