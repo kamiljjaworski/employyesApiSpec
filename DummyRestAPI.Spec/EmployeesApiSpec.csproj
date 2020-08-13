@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Steps\_EmployeeGivenSteps.cs" />
+    <Compile Remove="Steps\_EmployeeSteps.cs" />
+    <Compile Remove="Steps\_EmployeeThenSteps.cs" />
+    <Compile Remove="Steps\_EmployeeWhenSteps.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\EmployeeEdit - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\EmployeeGet - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\EmployeeGet.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0" />
+    <PackageReference Include="RestSharp" Version="106.11.4" />
+
+    
+    <PackageReference Include="SpecRun.SpecFlow" Version="3.3.41" />
+
+    
+    <PackageReference Include="xunit.assert" Version="2.4.1" />
+    
+
+    
+
+    
+
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Hooks\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\createEmployee.feature.cs">
+      <DependentUpon>createEmployee.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\deleteEmployee.feature.cs">
+      <DependentUpon>deleteEmployee.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\editEmployee.feature.cs">
+      <DependentUpon>editEmployee.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\getEmployee.feature.cs">
+      <DependentUpon>getEmployee.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\createEmployee.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\deleteEmployee.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\editEmployee.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\getEmployee.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+  </ItemGroup>
+
+</Project>
